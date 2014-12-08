@@ -5,10 +5,12 @@
  */
 package test.panels;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author Asus
  */
-public interface TestFindServiceTeacher {
-    Test[] findTest(String titleS, String scoreS, String accessS);
+public interface TestRemoveService {
+    boolean removeTest(BigInteger id);
 }

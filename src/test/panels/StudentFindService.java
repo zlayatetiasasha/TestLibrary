@@ -9,6 +9,6 @@ package test.panels;
  *
  * @author Asus
  */
-public interface TestFindServiceTeacher {
-    Test[] findTest(String titleS, String scoreS, String accessS);
+public interface StudentFindService {
+    Student[] findStudent(String nameS, String courseS, String grnumS);
 }

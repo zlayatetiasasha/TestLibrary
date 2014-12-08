@@ -57,6 +57,27 @@ public class Test implements Serializable {
     @Column(name = "instruction")
     private String instructions;
     
+    @Column(name = "access")
+    private String access;
+    
+    @Column(name = "time")
+    private Integer timeToPass;
+    
+    @Column(name = "poor")
+    private Integer poor;
+    
+    @Column(name = "unsat")
+    private Integer unsat;
+    
+    @Column(name = "sat")
+    private Integer sat;
+    
+    @Column(name = "good")
+    private Integer good;
+    
+    @Column(name = "exc")
+    private Integer exc;
+    
     @ManyToOne
     @JoinColumn(name="teacher_id", nullable = false, insertable = true, updatable = true)
     private Teacher teacher;
@@ -66,26 +87,39 @@ public class Test implements Serializable {
         
     public Test() {}
     
-    public Test(BigInteger id, List<Question> questions, String title, String author, String theme, Integer repeatPass, Integer passScore, String date, Teacher teacher) {
+    public Test(BigInteger id, List<Question> questions, String title, String author, String theme, Integer repeatPass, Integer passScore, String date,
+                    String instruction, Integer TimeToPass, Integer poor, Integer unsat, Integer sat, Integer good, Integer exc, String access) {
         this.id = id;
         this.questions = questions;
         this.title = title;
         this.theme = theme;
-        this.repeatPass = repeatPass;
         this.passScore = passScore;
         this.date = date;
-        this.teacher = teacher;
+        this.instructions = instructions;
+        this.timeToPass = timeToPass;
+        this.poor = poor;
+        this.unsat = unsat;
+        this.sat = sat;
+        this.good = good;
+        this.exc = exc;
+        this.access = access;
     }
     
-    public Test(List<Question> questions, String title, String author, String theme, Integer repeatPass, Integer passScore, String date, Teacher teacher) {
-        
+    public Test(List<Question> questions, String title, String author, String theme, Integer repeatPass, Integer passScore, String date,
+                    String instruction, Integer TimeToPass, Integer poor, Integer unsat, Integer sat, Integer good, Integer exc, String access) {
         this.questions = questions;
         this.title = title;
         this.theme = theme;
-        this.repeatPass = repeatPass;
         this.passScore = passScore;
         this.date = date;
-        this.teacher = teacher;
+        this.instructions = instructions;
+        this.timeToPass = timeToPass;
+        this.poor = poor;
+        this.unsat = unsat;
+        this.sat = sat;
+        this.good = good;
+        this.exc = exc;
+        this.access = access;
     }
 
     public void setId(BigInteger id) {
@@ -162,6 +196,62 @@ public class Test implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+    
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+    
+    public void setTimeToPass(Integer timeToPass) {
+        this.timeToPass = timeToPass;
+    }
+
+    public Integer getTimeToPass() {
+        return timeToPass;
+    }
+    
+    public Integer getPoor() {
+        return poor;
+    }
+
+    public void setPoor(Integer poor) {
+        this.poor = poor;
+    }
+    
+    public Integer getUnsat() {
+        return unsat;
+    }
+
+    public void setUnsat(Integer unsat) {
+        this.unsat = unsat;
+    }
+    
+    public Integer getSat() {
+        return sat;
+    }
+
+    public void setSat(Integer sat) {
+        this.sat = sat;
+    }
+
+    public Integer getGood() {
+        return good;
+    }
+
+    public void setGood(Integer good) {
+        this.good = good;
+    }
+    
+    public Integer getExc() {
+        return exc;
+    }
+
+    public void setEXc(Integer exc) {
+        this.exc = exc;
     }
     
   /*  public Statistics getStatistics() {

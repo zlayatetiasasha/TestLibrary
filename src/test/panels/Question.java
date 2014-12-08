@@ -39,6 +39,12 @@ public class Question implements Serializable {
     @Column(name = "text")
     private String text;
     
+    @Column(name = "value")
+    private Integer value;
+    
+    @Column(name = "correct")
+    private String correct;
+    
     @ManyToOne
     @JoinColumn(name="test_id", nullable = false, insertable = true, updatable = true)
     private Test test;
@@ -54,15 +60,19 @@ public class Question implements Serializable {
         text = "";
     }
     
-    public Question(BigInteger id, String text, QuestionType qtype) {
+    public Question(BigInteger id, String text, Integer value, String correct, QuestionType qtype) {
         this.id = id;
         this.text = text;
-        this.qtype=qtype;
+        this.value = value;
+        this.correct = correct;
+        this.qtype = qtype;
     }
     
-    public Question(String text, QuestionType qtype) {
+    public Question(String text, Integer value, String correct, QuestionType qtype) {
         this.text = text;
-        this.qtype=qtype;
+        this.value = value;
+        this.correct = correct;
+        this.qtype = qtype;
     }
     
     
@@ -108,6 +118,22 @@ public class Question implements Serializable {
     
     public Test getTest() {
         return test;
+    }
+    
+     public Integer getValue() {
+        return value;
+    }
+    
+    public void setCorrect(String correct) {
+        this.correct = correct;
+    }
+    
+    public String getCorrect() {
+        return correct;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
     }
     
     public void setQuestionType(QuestionType qtype) {
