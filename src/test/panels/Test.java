@@ -54,6 +54,9 @@ public class Test implements Serializable {
     @Column(name = "date")
     private String date;
     
+    @Column(name = "instruction")
+    private String instructions;
+    
     @ManyToOne
     @JoinColumn(name="teacher_id", nullable = false, insertable = true, updatable = true)
     private Teacher teacher;
