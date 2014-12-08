@@ -44,8 +44,4 @@ public class AnswersStudent implements Serializable{
     @OneToOne(mappedBy="text")
     private String text;
     
-     
-    
-    
-    
 }

@@ -35,18 +35,92 @@ public class AnsweredTest implements Serializable{
     @GenericGenerator(name="increment", strategy="increment")
     @Column(name="id")
     private BigInteger id;
-      
-    
+          
     @OneToOne(mappedBy="test_id")
     private Test test;
     
-    @Column(name = "result")
-    private BigInteger result;
-    
     @OneToOne(mappedBy="student_id")
     private Student student;
+        
+    @Column(name = "score")
+    private Integer score;
     
+    @Column(name = "grade")
+    private String grade;
     
+    @Column(name = "correct")
+    private Integer correct;
     
+    @Column(name = "wrong")
+    private Integer wrong;
     
+    @Column(name = "open")
+    private Integer open;
+    
+    public AnsweredTest() {}
+    
+    public AnsweredTest(BigInteger id, Integer score, String grade, Integer correct, Integer wrong, Integer open) {
+        this.id = id;
+        this.score = score;
+        this.grade = grade;
+        this.correct = correct;
+        this.wrong = wrong;
+        this.open = open;
+    }  
+    
+    public AnsweredTest(Integer score, String grade, Integer correct, Integer wrong, Integer open) {
+        this.score = score;
+        this.grade = grade;
+        this.correct = correct;
+        this.wrong = wrong;
+        this.open = open;
+    }
+    
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
+    public BigInteger getId() {
+        return id;
+    }   
+    
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getScore() {
+        return score;
+    }   
+    
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getGrade() {
+        return grade;
+    }   
+    
+    public void setCorrect(Integer correct) {
+        this.correct = correct;
+    }
+
+    public Integer getCorrect() {
+        return correct;
+    } 
+    
+    public void setWrong(Integer wrong) {
+        this.wrong = wrong;
+    }
+
+    public Integer getWrong() {
+        return wrong;
+    } 
+    
+    public void setOpen(Integer open) {
+        this.open = open;
+    }
+
+    public Integer getOpen() {
+        return open;
+    }
 }
